@@ -1,9 +1,4 @@
-from django.http import HttpResponse
-from django.template.loader import get_template
-from django.template import Context
+from django.shortcuts import render_to_response
 
 def hello(request):
-    t = get_template('template_hello.html')
-    html = t.render(Context({'text':'Hello world!'}))
-
-    return HttpResponse(html)
+    return render_to_response('template_hello.html', {'text':'Hello, world!'})
